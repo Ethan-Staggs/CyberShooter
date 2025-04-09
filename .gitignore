@@ -1,0 +1,11 @@
+ 
+# Ignore individual files
+secret_config.env
+debug.log
+
+# Ignore folders
+/build/
+/dist/
+
+# Ignore all .tmp files
+*.tmp
