@@ -1,3 +1,32 @@
-[gd_scene format=3 uid="uid://g6j1hg7ei5hr"]
+[gd_scene load_steps=5 format=3 uid="uid://g6j1hg7ei5hr"]
+
+[ext_resource type="Texture2D" uid="uid://4rbs8uyy2wne" path="res://Assets/Spritesheets/Main Character - Male - Weapon Effect.png" id="1_83m5e"]
+[ext_resource type="Script" path="res://bullet.gd" id="1_q0llr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y4fhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_83m5e")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b027s"]
+radius = 4.0
+height = 38.0
 
 [node name="Bullet" type="Node2D"]
+z_index = 8
+script = ExtResource("1_q0llr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y4fhs")
+animation = &"shoot"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_b027s")
