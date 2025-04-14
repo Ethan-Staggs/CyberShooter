@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var shootFromDist = 250
 var calcPosition = 0.0
 
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +16,7 @@ func _process(delta):
 		var player_position = player.global_position.x
 		calcPosition = $AnimatedSprite2D.global_position.x - player_position
 		print(calcPosition)
-	if calcPosition < 250:
+	if calcPosition < shootFromDist:
 		print("shoot")
 		$AnimatedSprite2D.play("shoot")
 	else:
