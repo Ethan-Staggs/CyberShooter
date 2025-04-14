@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 	
 	#Handle shoot
 	if Input.is_action_just_pressed("shoot"):
+		$AudioStreamPlayer2D.play()
 		shoot(isPlayerFlipped)
 		print(isPlayerFlipped)
 

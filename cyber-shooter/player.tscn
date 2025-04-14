@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjjbfi83e7mou"]
+[gd_scene load_steps=21 format=3 uid="uid://bjjbfi83e7mou"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_fl611"]
 [ext_resource type="Texture2D" uid="uid://c24e1nqydhxlp" path="res://Assets/Spritesheets/Main Character - Male - Full spritesheet.png" id="2_pmf46"]
 [ext_resource type="Script" path="res://animated_sprite_2d.gd" id="3_2q3uh"]
+[ext_resource type="AudioStream" uid="uid://b53voc276eg18" path="res://Assets/Audio/playerLaserGunSound.wav" id="4_6m817"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6n640"]
 atlas = ExtResource("2_pmf46")
@@ -119,7 +120,7 @@ animations = [{
 radius = 5.0
 height = 16.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_fl611")
@@ -141,3 +142,6 @@ shape = SubResource("CapsuleShape2D_tnb6b")
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1, 0.581)
 zoom = Vector2(2, 2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6m817")
