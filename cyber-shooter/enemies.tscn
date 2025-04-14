@@ -97,7 +97,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pjtnv"]
 height = 70.0
 
-[node name="Enemies" type="Node2D"]
+[node name="Enemy" type="Node2D"]
 script = ExtResource("1_mcpvk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -105,7 +105,7 @@ position = Vector2(2, 0)
 sprite_frames = SubResource("SpriteFrames_13f5a")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.0710273
+frame_progress = 0.518042
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
