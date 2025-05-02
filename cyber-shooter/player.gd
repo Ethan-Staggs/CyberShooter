@@ -49,3 +49,17 @@ func shoot(isPlayerFlipped):
 	bullet.global_position = $PlayerAnimatedSprite2D/Marker2D.global_position
 	get_tree().root.add_child(bullet)
 	
+#func _on_area_2d_area_entered(area: Area2D) -> void:
+	#if area.is_in_group("Bullet"):
+		#print("Player hit")
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Bullet"):
+		area.queue_free()
+		if health == 1:
+			print("Player Dead")
+		else:
+			health = health - 1
+			print("Player hit")
+			print(health)

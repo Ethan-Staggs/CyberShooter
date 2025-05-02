@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjjbfi83e7mou"]
+[gd_scene load_steps=22 format=3 uid="uid://bjjbfi83e7mou"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_fl611"]
 [ext_resource type="Texture2D" uid="uid://c24e1nqydhxlp" path="res://Assets/Spritesheets/Main Character - Male - Full spritesheet.png" id="2_pmf46"]
@@ -120,6 +120,10 @@ animations = [{
 radius = 5.0
 height = 16.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gc3dm"]
+radius = 5.0
+height = 16.0
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 script = ExtResource("1_fl611")
@@ -144,3 +148,12 @@ zoom = Vector2(2, 2)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_6m817")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_gc3dm")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
