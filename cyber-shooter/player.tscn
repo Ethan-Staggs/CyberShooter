@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player.gd" id="1_fl611"]
 [ext_resource type="Texture2D" uid="uid://c24e1nqydhxlp" path="res://Assets/Spritesheets/Main Character - Male - Full spritesheet.png" id="2_pmf46"]
-[ext_resource type="Script" path="res://animated_sprite_2d.gd" id="3_2q3uh"]
+[ext_resource type="Script" path="res://player_animated_sprite_2d.gd" id="3_v3arc"]
 [ext_resource type="AudioStream" uid="uid://b53voc276eg18" path="res://Assets/Audio/playerLaserGunSound.wav" id="4_6m817"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6n640"]
@@ -122,17 +122,16 @@ height = 16.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
-collision_layer = 2
 script = ExtResource("1_fl611")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PlayerAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bh4th")
 animation = &"idle"
 autoplay = "idle"
 flip_h = true
-script = ExtResource("3_2q3uh")
+script = ExtResource("3_v3arc")
 
-[node name="Marker2D" type="Marker2D" parent="AnimatedSprite2D"]
+[node name="Marker2D" type="Marker2D" parent="PlayerAnimatedSprite2D"]
 position = Vector2(12, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

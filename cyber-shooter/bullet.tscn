@@ -9,7 +9,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_83m5e")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
 "speed": 5.0
 }]
@@ -18,8 +18,10 @@ animations = [{
 radius = 4.0
 height = 38.0
 
-[node name="Bullet" type="Node2D"]
+[node name="Bullet" type="Area2D" groups=["Bullet"]]
 z_index = 8
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_q0llr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -27,6 +29,6 @@ sprite_frames = SubResource("SpriteFrames_y4fhs")
 animation = &"shoot"
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_b027s")
