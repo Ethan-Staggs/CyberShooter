@@ -1,14 +1,14 @@
-extends AnimatedSprite2D
+extends enemyBase
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	print("Entered tree")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if flip_h:
-		$Marker2D.position = Vector2(-27, $Marker2D.position.y)
-	else:
-		$Marker2D.position = Vector2(37, $Marker2D.position.y)
+	super._physics_process(delta)
+	
+
+	
