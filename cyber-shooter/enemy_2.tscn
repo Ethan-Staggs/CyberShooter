@@ -160,10 +160,11 @@ shape = SubResource("CapsuleShape2D_3b4c0")
 [node name="EnemyAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 0)
 sprite_frames = SubResource("SpriteFrames_b1xnr")
-animation = &"dead"
+animation = &"idle"
 autoplay = "idle"
 flip_h = true
 script = ExtResource("2_w3u5v")
+metadata/_edit_lock_ = true
 
 [node name="Marker2D" type="Marker2D" parent="EnemyAnimatedSprite2D"]
 position = Vector2(-20, 27)

@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg86unis1g71b"]
+
+[ext_resource type="Script" path="res://UI.gd" id="1_t2mx6"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_t2mx6")
+
+[node name="GameOver" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -24.5
+offset_right = 98.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "GAME OVER
+PRESS SPACE TO RESTART"
+horizontal_alignment = 1
+
+[node name="Health" type="Label" parent="."]
+offset_right = 196.0
+offset_bottom = 49.0
+size_flags_horizontal = 4
+text = "10"

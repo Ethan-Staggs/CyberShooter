@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var label: Label = $CanvasLayer/Label
+
 @onready var spawnPoint: Marker2D = $Marker2D 
 var player
 
@@ -13,11 +13,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player.dead:
 		if Input.is_action_just_pressed("restart"):
+			get_tree().get_first_node_in_group("Player").queue_free()
 			spawnPlayer()
 			
 func spawnPlayer():
 	player = preload("res://player.tscn").instantiate()
 	player.global_position = spawnPoint.global_position
-	label.visible = false
+	Globals.gameOverToggle.emit()
 	get_tree().root.add_child.call_deferred(player)
 	

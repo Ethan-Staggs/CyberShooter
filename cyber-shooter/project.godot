@@ -15,6 +15,10 @@ run/main_scene="res://level1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://globals.gd"
+
 [debug]
 
 shapes/navigation/geometry_edge_color=Color(0.501961, 1, 1, 0)

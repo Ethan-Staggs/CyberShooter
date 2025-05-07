@@ -9,6 +9,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if flip_h:
-		$Marker2D.position = Vector2(-27, $Marker2D.position.y)
+		$Marker2D.position = Vector2(-37, $Marker2D.position.y)
 	else:
-		$Marker2D.position = Vector2(37, $Marker2D.position.y)
+		$Marker2D.position = Vector2(47, $Marker2D.position.y)

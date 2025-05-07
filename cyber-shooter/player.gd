@@ -6,8 +6,8 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -345.0
 var gravity = 800
-var isPlayerFlipped = true
-var health = 10
+var isPlayerFlipped = false
+var health = 1000
 var dead = false
 
 func _ready() -> void:
@@ -63,13 +63,10 @@ func shoot(isPlayerFlipped):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
 		area.queue_free()
-		if health == 1:
+		if health < 1:
 			dead = true
-			cam.enabled = false
-			var canvas = get_tree().get_first_node_in_group("ui")
-			var gameOverLabel = canvas.get_node("Label")
-			gameOverLabel.visible = true
+			Globals.gameOverToggle.emit()
 		else:
 			health = health - 1
-			print("Player hit")
+			Globals.updateHealth.emit(health)
 			print(health)
