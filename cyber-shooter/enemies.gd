@@ -53,13 +53,16 @@ func shoot(isPlayerFlipped):
 		
 		
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Bullet"):
+	print(health)
+	if area.is_in_group("BulletToEnemy"):
 		area.queue_free()
 	if health < 1:
 		$EnemyAnimatedSprite2D.play("dead")
 		deathSoundPlayer.play()
 		await  get_tree().create_timer(1.5).timeout
 		queue_free()
+	elif area.is_in_group("BulletToPlayer"):
+		health = health
 	else:
 		health = health - 1
 		

@@ -133,6 +133,7 @@ height = 16.0
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 scale = Vector2(2.5, 2.5)
+collision_mask = 5
 script = ExtResource("1_fl611")
 
 [node name="PlayerAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
