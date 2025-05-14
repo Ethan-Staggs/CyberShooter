@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 		
 	
 func shoot(isPlayerFlipped):
-	var bullet = preload("res://bullet.tscn").instantiate()
+	var bullet = preload("res://bullet_to_enemy.tscn").instantiate()
 	bullet.initialize(isPlayerFlipped, true)
 	bullet.global_position = $PlayerAnimatedSprite2D/Marker2D.global_position
 	get_tree().root.add_child(bullet)
@@ -61,12 +61,14 @@ func shoot(isPlayerFlipped):
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Bullet"):
+	if area.is_in_group("BulletToPlayer"):
 		area.queue_free()
+		health = health - 1
+		Globals.updateHealth.emit(health)
+		print("PLAYER HIT")
 		if health < 1:
 			dead = true
 			Globals.gameOverToggle.emit()
-		else:
-			health = health - 1
-			Globals.updateHealth.emit(health)
-			print(health)
+		elif area.is_in_group("BulletToEnemy"):
+			health = health
+		
