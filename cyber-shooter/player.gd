@@ -7,13 +7,12 @@ const SPEED = 100.0
 const JUMP_VELOCITY = -345.0
 var gravity = 800
 var isPlayerFlipped = false
-var health = 1000
+var health = 5 
 var dead = false
 
 func _ready() -> void:
 	cam.enabled = true
-
-func _physics_process(delta: float) -> void:
+ 
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta

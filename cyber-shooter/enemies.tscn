@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bfgp2jcthuxva"]
+[gd_scene load_steps=31 format=3 uid="uid://dffryfxrnwnw7"]
 
 [ext_resource type="Script" path="res://enemies.gd" id="1_mcpvk"]
 [ext_resource type="Texture2D" uid="uid://dy2tpuynhv1as" path="res://Assets/Enemies/Punk/Shot_1.png" id="2_bjoon"]

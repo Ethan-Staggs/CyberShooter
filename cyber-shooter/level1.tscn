@@ -1,12 +1,13 @@
-[gd_scene load_steps=48 format=4 uid="uid://cur75mv4ujamu"]
+[gd_scene load_steps=51 format=4 uid="uid://cur75mv4ujamu"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_2gga7"]
 [ext_resource type="Texture2D" uid="uid://bv0ibt3k8px6r" path="res://Assets/Assets/Tiles.png" id="1_a6yfu"]
-[ext_resource type="PackedScene" uid="uid://df0lh7pyv5k35" path="res://enemy_3.tscn" id="1_i2ndy"]
-[ext_resource type="PackedScene" uid="uid://bfgp2jcthuxva" path="res://enemies.tscn" id="1_wdjit"]
+[ext_resource type="PackedScene" path="res://enemy_3.tscn" id="1_i2ndy"]
+[ext_resource type="PackedScene" uid="uid://dffryfxrnwnw7" path="res://enemies.tscn" id="1_wdjit"]
 [ext_resource type="Texture2D" uid="uid://bufjaojygs23x" path="res://Assets/Assets/Buildings.png" id="2_2m2mh"]
-[ext_resource type="PackedScene" uid="uid://bakrav8nql1x3" path="res://enemy_5.tscn" id="2_chitx"]
-[ext_resource type="PackedScene" uid="uid://df07ix6j5bolw" path="res://enemy7.tscn" id="2_vosxr"]
+[ext_resource type="PackedScene" path="res://enemy_5.tscn" id="2_chitx"]
+[ext_resource type="PackedScene" uid="uid://lfcp0kahu1a3" path="res://flying_drone_enemy.tscn" id="2_dqiov"]
+[ext_resource type="PackedScene" path="res://enemy7.tscn" id="2_vosxr"]
 [ext_resource type="Texture2D" uid="uid://bkxop80ho0uin" path="res://Assets/Vehicles/v-red.png" id="3_k2d6p"]
 [ext_resource type="Texture2D" uid="uid://dmfg35ewhwnxm" path="res://Assets/Assets/Props-01.png" id="3_pq6rt"]
 [ext_resource type="Texture2D" uid="uid://b6b1wgchxc1hx" path="res://Assets/Background/Base Color.png" id="4_86svn"]
@@ -27,10 +28,11 @@
 [ext_resource type="Texture2D" uid="uid://b4k7hu71scp6n" path="res://Assets/banners/monitor-face-3.png" id="16_02hxt"]
 [ext_resource type="Texture2D" uid="uid://toik5lr3f86t" path="res://Assets/banners/monitor-face-4.png" id="17_gkxjl"]
 [ext_resource type="AudioStream" uid="uid://ov5lupx33bid" path="res://Assets/Audio/level1.ogg" id="23_m3mb2"]
-[ext_resource type="PackedScene" uid="uid://fo7d3dk2ur6f" path="res://enemy_2.tscn" id="25_xdbbk"]
-[ext_resource type="PackedScene" uid="uid://ctx688cqd8osf" path="res://enemy_4.tscn" id="27_3r77a"]
-[ext_resource type="PackedScene" uid="uid://dg86unis1g71b" path="res://UI.tscn" id="28_hfxdk"]
-[ext_resource type="PackedScene" uid="uid://br3v8ght8t388" path="res://enemy_6.tscn" id="30_x4f38"]
+[ext_resource type="PackedScene" path="res://enemy_2.tscn" id="25_xdbbk"]
+[ext_resource type="PackedScene" path="res://enemy_4.tscn" id="27_3r77a"]
+[ext_resource type="PackedScene" path="res://UI.tscn" id="28_hfxdk"]
+[ext_resource type="PackedScene" path="res://enemy_6.tscn" id="30_x4f38"]
+[ext_resource type="Script" path="res://path_follow_2d.gd" id="32_iqlfo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j41xw"]
 texture = ExtResource("1_a6yfu")
@@ -969,6 +971,12 @@ animations = [{
 stream_count = 1
 stream_0 = ExtResource("23_m3mb2")
 
+[sub_resource type="Curve2D" id="Curve2D_gjydv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 348, 485, 0, 0, 0, 0, 1019, 488)
+}
+point_count = 2
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_2gga7")
 
@@ -1059,3 +1067,14 @@ position = Vector2(57, 602)
 
 [node name="enemy6" parent="." instance=ExtResource("30_x4f38")]
 position = Vector2(1696, 329)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_gjydv")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" groups=["dronePath"]]
+position = Vector2(348, 485)
+rotation = 0.00447091
+script = ExtResource("32_iqlfo")
+
+[node name="flyingDroneEnemy" parent="Path2D/PathFollow2D" instance=ExtResource("2_dqiov")]
+position = Vector2(-3.02681, -5.98654)

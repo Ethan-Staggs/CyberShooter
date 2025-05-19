@@ -41,7 +41,7 @@ func shoot(isPlayerFlipped):
 	var randomShots = randf() + 0.2
 	canShoot = false
 	bullet = preload("res://bullet.tscn").instantiate()
-	bullet.initialize(isPlayerFlipped, false)
+	bullet.initialize(isPlayerFlipped, "false")
 	bullet.global_position = $EnemyAnimatedSprite2D/Marker2D.global_position
 	get_tree().root.add_child(bullet)
 	gunSound.play()
