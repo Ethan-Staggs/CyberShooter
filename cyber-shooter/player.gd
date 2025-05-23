@@ -3,61 +3,73 @@ extends CharacterBody2D
 @onready var cam: Camera2D = $Camera2D
 
 #@export var Bullet: PackedScene
-const SPEED = 100.0
-const JUMP_VELOCITY = -345.0
-var gravity = 800
+const SPEED = 200.0
+const JUMP_VELOCITY = -365.0
+var gravity = 300
 var isPlayerFlipped = false
-var health = 5 
+var health = 110
 var dead = false
+var isJumping = false
 
 func _ready() -> void:
 	cam.enabled = true
- 
-	
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 
+func _physics_process(delta: float) -> void:
+ 
 	if !dead:
+		movement(delta)
+	
+func movement(delta: float) -> void:
+ 
+	if !dead:
+		var direction = Input.get_vector("left", "right", "up", "down")
 		
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
-		
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+			velocity.x = Input.get_axis("left", "right") * SPEED
 		
 		if Input.is_action_just_pressed("shoot"):
 			$AudioStreamPlayer2D.play()
 			shoot(isPlayerFlipped)
 			
 
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			$PlayerAnimatedSprite2D.play("jumping")
+			isJumping = true
+			
+			
+		elif is_on_floor():
+			isJumping = false
 		
-		var direction = Input.get_vector("left", "right", "up", "down")
+		velocity.x = direction.x * SPEED
 		
-		if Input.is_action_pressed("left"):
+		if isJumping:
+			$PlayerAnimatedSprite2D.play("jumping")
+		elif Input.is_action_pressed("left"):
+			print(velocity.x)
 			direction.x -= 1
 			$PlayerAnimatedSprite2D.flip_h = false
 			isPlayerFlipped = false
-			$PlayerAnimatedSprite2D.play("run")
+			isJumping = false
+			$PlayerAnimatedSprite2D.play("unarmedRun")
 		elif  Input.is_action_pressed("right"):
 			direction.x += 1
 			$PlayerAnimatedSprite2D.flip_h = true
 			isPlayerFlipped = true
-			$PlayerAnimatedSprite2D.play("run")
+			isJumping = false
+			$PlayerAnimatedSprite2D.play("unarmedRun")
 		else:
+			isJumping = false
 			$PlayerAnimatedSprite2D.play("idle")
-		
-		velocity.x = direction.x * SPEED
-	move_and_slide()
-	
-	
 			
-		
+	move_and_slide()
 	
 func shoot(isPlayerFlipped):
 	var bullet = preload("res://bullet_to_enemy.tscn").instantiate()
 	bullet.initialize(isPlayerFlipped, true)
 	bullet.global_position = $PlayerAnimatedSprite2D/Marker2D.global_position
 	get_tree().root.add_child(bullet)
-
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("BulletToPlayer"):
@@ -70,4 +82,3 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			Globals.gameOverToggle.emit()
 		elif area.is_in_group("BulletToEnemy"):
 			health = health
-		

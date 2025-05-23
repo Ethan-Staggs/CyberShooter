@@ -18,7 +18,6 @@ func shoot(isPlayerFlipped):
 	bullet.global_position = $EnemyAnimatedSprite2D/Marker2D.global_position
 	get_tree().root.add_child(bullet)
 	gunSound.play()
-	print(randomShots)
 	
 	await get_tree().create_timer(randomShots).timeout
 	canShoot = true 

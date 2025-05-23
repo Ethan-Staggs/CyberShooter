@@ -11,10 +11,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	
-	
-	 if player.dead:
+func _process(delta: float) -> void:	
+	if player.dead:
 		if Input.is_action_just_pressed("restart"):
 			get_tree().get_first_node_in_group("Player").queue_free()
 			spawnPlayer()

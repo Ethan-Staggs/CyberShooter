@@ -45,7 +45,6 @@ func shoot(isPlayerFlipped):
 	bullet.global_position = $EnemyAnimatedSprite2D/Marker2D.global_position
 	get_tree().root.add_child(bullet)
 	gunSound.play()
-	print(randomShots)
 	
 	await get_tree().create_timer(randomShots).timeout
 	canShoot = true 
@@ -58,7 +57,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if health < 1:
 		$EnemyAnimatedSprite2D.play("dead")
 		deathSoundPlayer.play()
-		await  get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(1.5).timeout
 		queue_free()
 	elif area.is_in_group("BulletToPlayer"):
 		health = health
