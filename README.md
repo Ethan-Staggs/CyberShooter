@@ -4,10 +4,10 @@ A fast-paced, neon-drenched cyberpunk platformer built in **Godot**, featuring p
 
 ## 🎮 Screenshots
 
-![Cyberpunk City](assets/CS1.png)
-![Combat Scene](assets/CS2.png)
-![Combat Scene](assets/CS3.png)
-![Combat Scene](assets/CS4.png)
+![Cyberpunk City](Assets/CS1.png)
+![Combat Scene](Assets/CS2.png)
+![Combat Scene](Assets/CS3.png)
+![Combat Scene](Assets/CS4.png)
 
 ## 🛠 Built With
 
