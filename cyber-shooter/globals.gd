@@ -2,6 +2,11 @@ extends Node
 
 signal gameOverToggle()
 signal updateHealth(h)
+signal updateAmmo(a)
+signal updateLethals(l)
+signal pistolAreaEntered
+signal grenadeAreaEntered
+signal ammoAreaEntered
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

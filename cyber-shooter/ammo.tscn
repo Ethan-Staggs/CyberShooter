@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://s50bujpln102"]
+
+[ext_resource type="Texture2D" uid="uid://4rbs8uyy2wne" path="res://Assets/Spritesheets/Main Character - Male - Weapon Effect.png" id="1_g0ri3"]
+[ext_resource type="Script" path="res://ammo.gd" id="1_nsbvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1klq"]
+size = Vector2(34, 11)
+
+[node name="Ammo" type="Area2D"]
+script = ExtResource("1_nsbvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g0ri3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_r1klq")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

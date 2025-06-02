@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://cur75mv4ujamu"]
+[gd_scene load_steps=54 format=4 uid="uid://cur75mv4ujamu"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_2gga7"]
 [ext_resource type="Texture2D" uid="uid://bv0ibt3k8px6r" path="res://Assets/Assets/Tiles.png" id="1_a6yfu"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://lfcp0kahu1a3" path="res://flying_drone_enemy.tscn" id="2_dqiov"]
 [ext_resource type="PackedScene" uid="uid://df07ix6j5bolw" path="res://enemy7.tscn" id="2_vosxr"]
 [ext_resource type="PackedScene" uid="uid://dunwujmgha448" path="res://pistol.tscn" id="2_xhy8c"]
+[ext_resource type="PackedScene" uid="uid://s50bujpln102" path="res://ammo.tscn" id="2_xmi5s"]
+[ext_resource type="PackedScene" uid="uid://di1q12xgylhwe" path="res://grenade.tscn" id="2_y6twg"]
 [ext_resource type="Texture2D" uid="uid://bkxop80ho0uin" path="res://Assets/Vehicles/v-red.png" id="3_k2d6p"]
 [ext_resource type="Texture2D" uid="uid://dmfg35ewhwnxm" path="res://Assets/Assets/Props-01.png" id="3_pq6rt"]
 [ext_resource type="Texture2D" uid="uid://b6b1wgchxc1hx" path="res://Assets/Background/Base Color.png" id="4_86svn"]
@@ -980,6 +982,14 @@ point_count = 2
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_2gga7")
+
+[node name="Ammo" parent="." instance=ExtResource("2_xmi5s")]
+z_index = 10
+position = Vector2(1833, 609)
+
+[node name="Grenade" parent="." instance=ExtResource("2_y6twg")]
+z_index = 10
+position = Vector2(431, 718)
 
 [node name="pistol" parent="." instance=ExtResource("2_xhy8c")]
 z_index = 10
