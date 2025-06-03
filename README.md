@@ -20,4 +20,4 @@ A fast-paced, neon-drenched cyberpunk platformer built in **Godot**, featuring p
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/Ethan-Staggs/cyberpunk-platformer.git
+   git clone https://github.com/Ethan-Staggs/CyberShooter.git
