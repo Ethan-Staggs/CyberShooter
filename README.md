@@ -1,4 +1,5 @@
 # Cyberpunk Platformer
+(Work in progress)
 
 A fast-paced, neon-drenched cyberpunk platformer built in **Godot**, featuring pulse-pounding synthwave music, bot soilders and drones!
 
@@ -19,4 +20,4 @@ A fast-paced, neon-drenched cyberpunk platformer built in **Godot**, featuring p
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/cyberpunk-platformer.git
+   git clone https://github.com/Ethan-Staggs/CyberShooter.git
