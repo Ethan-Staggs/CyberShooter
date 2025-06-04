@@ -988,8 +988,7 @@ z_index = 10
 position = Vector2(1833, 609)
 
 [node name="Grenade" parent="." instance=ExtResource("2_y6twg")]
-z_index = 10
-position = Vector2(431, 718)
+position = Vector2(429, 609)
 
 [node name="pistol" parent="." instance=ExtResource("2_xhy8c")]
 z_index = 10
