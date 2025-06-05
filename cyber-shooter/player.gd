@@ -28,6 +28,9 @@ func _physics_process(delta: float) -> void:
 func movement(delta: float) -> void:
  
 	if !dead:
+		#if Input.is_action_just_pressed("throw"):
+			#Globals.throw.emit(5.5, 5.5, 100)
+		
 		var direction = Input.get_vector("left", "right", "up", "down")
 		
 		if not is_on_floor():

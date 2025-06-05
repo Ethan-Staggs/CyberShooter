@@ -7,6 +7,7 @@ signal updateLethals(l)
 signal pistolAreaEntered
 signal grenadeAreaEntered
 signal ammoAreaEntered
+#signal throw(direction, force)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
