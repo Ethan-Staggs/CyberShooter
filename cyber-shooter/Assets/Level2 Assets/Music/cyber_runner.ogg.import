@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d2qgefq70aowe"
+path="res://.godot/imported/cyber_runner.ogg-d5125947a7adaaebec0f59d0616c83fd.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Level2 Assets/Music/cyber_runner.ogg"
+dest_files=["res://.godot/imported/cyber_runner.ogg-d5125947a7adaaebec0f59d0616c83fd.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
