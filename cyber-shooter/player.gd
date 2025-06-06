@@ -7,7 +7,7 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -365.0
 var gravity = 300
 var isPlayerFlipped = false
-var health = 11
+var health = 15
 var dead = false
 var isJumping = false
 var pistolAnimation = false
@@ -19,6 +19,7 @@ func _ready() -> void:
 	Globals.pistolAreaEntered.connect(onPistolAreaEntered)
 	Globals.grenadeAreaEntered.connect(onGrenadeAreaEntered)
 	Globals.ammoAreaEntered.connect(onAmmoAreaEntered)
+	Globals.updateHealth.connect(onHealthPickupEntered)
 	
 func _physics_process(delta: float) -> void:
  
@@ -118,5 +119,9 @@ func onGrenadeAreaEntered():
 	Globals.updateLethals.emit(lethals)
 	
 func onAmmoAreaEntered():
-	ammo = ammo + 10
+	ammo = ammo + 12
 	Globals.updateAmmo.emit(ammo)
+	
+func onHealthPickupEntered():
+	health = health + 1
+	Globals.updateHealth.emit(health)

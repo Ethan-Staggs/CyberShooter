@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var elevatorSpeed = 20
+var elevatorSpeed = 30
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

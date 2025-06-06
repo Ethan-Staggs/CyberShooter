@@ -7,8 +7,9 @@ class_name enemyBase
 var calcPosition = 0.0
 var isPlayerFlipped = false
 var canShoot = true
-var health = 10
+var health = 6
 var bullet
+var dropPlayerHealthPowerup
 
 
 
@@ -54,9 +55,12 @@ func shoot(isPlayerFlipped):
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("BulletToEnemy"):
 		area.queue_free()
-	if health < 1:
+	if health <= 1:
 		$EnemyAnimatedSprite2D.play("dead")
 		deathSoundPlayer.play()
+		dropPlayerHealthPowerup = preload("res://health_pickup.tscn").instantiate()
+		dropPlayerHealthPowerup.global_position = global_position
+		get_tree().get_root().add_child(dropPlayerHealthPowerup)
 		await get_tree().create_timer(1.5).timeout
 		queue_free()
 	elif area.is_in_group("BulletToPlayer"):
