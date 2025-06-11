@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://3sksd0fw621u"]
 
-[ext_resource type="Texture2D" uid="uid://c5f88g7m0pnmt" path="res://World/background/skyline-a.png" id="1_3cw0f"]
-[ext_resource type="Texture2D" uid="uid://bs7dxa2fc8o2r" path="res://World/background/buildings-bg.png" id="2_bm6io"]
-[ext_resource type="Texture2D" uid="uid://m5pqg4xm2p5o" path="res://World/background/near-buildings-bg.png" id="3_rk6cw"]
+[ext_resource type="Texture2D" uid="uid://c5f88g7m0pnmt" path="res://Assets/Level2 Assets/World/background/skyline-a.png" id="1_3cw0f"]
+[ext_resource type="Texture2D" uid="uid://bs7dxa2fc8o2r" path="res://Assets/Level2 Assets/World/background/buildings-bg.png" id="2_bm6io"]
+[ext_resource type="Texture2D" uid="uid://m5pqg4xm2p5o" path="res://Assets/Level2 Assets/World/background/near-buildings-bg.png" id="3_rk6cw"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 

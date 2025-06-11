@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dqa6v1x57t5w7"]
 
 [ext_resource type="Script" path="res://turret_enemy.gd" id="1_hq2qi"]
-[ext_resource type="Texture2D" uid="uid://1d0k5mdn4ksa" path="res://Assets/Enemies/Turret/turret-preview.png" id="2_gta7r"]
+[ext_resource type="Texture2D" uid="uid://1d0k5mdn4ksa" path="res://Assets/Level2 Assets/Enemies/Turret/turret-preview.png" id="2_gta7r"]
 [ext_resource type="Script" path="res://enemy_animated_sprite_2d.gd" id="3_jxows"]
 [ext_resource type="AudioStream" uid="uid://df2byc61a5pul" path="res://Assets/Audio/playerGunSound.wav" id="4_tkflg"]
 [ext_resource type="AudioStream" uid="uid://bgc3i3ogpjrfu" path="res://Assets/Audio/death/695384__fmaudio__male-death-cry-1.wav" id="5_wnwm7"]

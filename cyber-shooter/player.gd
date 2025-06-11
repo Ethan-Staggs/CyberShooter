@@ -13,6 +13,7 @@ var isJumping = false
 var pistolAnimation = false
 var ammo = 30
 var lethals = 0
+var canShoot = false
 
 func _ready() -> void:
 	cam.enabled = true
@@ -39,7 +40,8 @@ func movement(delta: float) -> void:
 			velocity.x = Input.get_axis("left", "right") * SPEED
 		
 		if Input.is_action_just_pressed("shoot"):
-			if !ammo < 0:
+			
+			if !ammo < 0 and canShoot:
 				$AudioStreamPlayer2D.play()
 				ammo -= 1
 				Globals.updateAmmo.emit(ammo)
@@ -95,8 +97,9 @@ func shoot(isPlayerFlipped):
 	bullet.global_position = $PlayerAnimatedSprite2D/Marker2D.global_position
 	get_tree().root.add_child(bullet)
 	
+#Handle enemy being shot
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print(name)
+	#if bullet is from an enemy gun
 	if area.is_in_group("BulletToPlayer"):
 		area.queue_free()
 		health = health - 1
@@ -105,23 +108,28 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if health < 1:
 			dead = true
 			Globals.gameOverToggle.emit()
+			#if bullet is from player gun
 		elif area.is_in_group("BulletToEnemy"):
 			health = health
-		elif area.is_in_group("Pistol"):
-			print("in group")
+		#elif area.is_in_group("Pistol"):
+			#print("in group")
 			
+#Pick up pistol when walking over pistol
 func onPistolAreaEntered():
-	print("Pistol area entered")
+	canShoot = true
 	pistolAnimation = true
-	
+
+#Pick up grenade when walking over grenade
 func onGrenadeAreaEntered():
 	lethals = lethals + 1
 	Globals.updateLethals.emit(lethals)
 	
+#Pick up ammo when walking over ammo
 func onAmmoAreaEntered():
 	ammo = ammo + 12
 	Globals.updateAmmo.emit(ammo)
 	
+#Pick up health when walking over health
 func onHealthPickupEntered():
 	health = health + 1
 	Globals.updateHealth.emit(health)

@@ -377,7 +377,8 @@ height = 16.0
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 scale = Vector2(2.5, 2.5)
-collision_mask = 61
+collision_layer = 65
+collision_mask = 125
 script = ExtResource("1_fl611")
 
 [node name="PlayerAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -409,5 +410,5 @@ collision_mask = 4
 position = Vector2(0.8, 0.8)
 shape = SubResource("CapsuleShape2D_gc3dm")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
